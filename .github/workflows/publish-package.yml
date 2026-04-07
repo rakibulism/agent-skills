@@ -1,8 +1,8 @@
-name: Publish CLI to GitHub Packages
+name: Publish CLI package (npm + GitHub Packages)
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
   publish:
@@ -15,8 +15,21 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - run: npm ci
+      - name: Publish to npm
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+      - run: cd packages/cli && npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish to GitHub Packages
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
           registry-url: 'https://npm.pkg.github.com'
-      - run: cd packages/cli && npm ci
+          scope: '@rakibulism'
       - run: cd packages/cli && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

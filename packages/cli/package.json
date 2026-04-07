@@ -1,13 +1,26 @@
 {
-  "name": "@agent-skills/cli",
+  "name": "@rakibulism/agent-skills",
   "version": "1.0.0",
   "description": "Download AI agent skill files from agent-skills",
   "type": "module",
   "bin": {
     "agent-skills": "./bin/agent-skills.js"
   },
+  "files": [
+    "bin",
+    "src",
+    "README.md"
+  ],
   "scripts": {
     "start": "node ./bin/agent-skills.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rakibulism/agent-skills.git",
+    "directory": "packages/cli"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "license": "MIT"
 }

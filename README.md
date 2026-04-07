@@ -18,7 +18,7 @@ npm run dev:web
 ## CLI Usage
 
 ```bash
-node packages/cli/bin/agent-skills.js list
-node packages/cli/bin/agent-skills.js search "seo"
-node packages/cli/bin/agent-skills.js get ui-designer --output ./tmp
+npx @rakibulism/agent-skills list
+npx @rakibulism/agent-skills search "seo"
+npx @rakibulism/agent-skills get ui-designer --output ./tmp
 ```
