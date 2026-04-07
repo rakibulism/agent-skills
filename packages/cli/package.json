@@ -1,0 +1,13 @@
+{
+  "name": "@agent-skills/cli",
+  "version": "1.0.0",
+  "description": "Download AI agent skill files from agent-skills",
+  "type": "module",
+  "bin": {
+    "agent-skills": "./bin/agent-skills.js"
+  },
+  "scripts": {
+    "start": "node ./bin/agent-skills.js"
+  },
+  "license": "MIT"
+}

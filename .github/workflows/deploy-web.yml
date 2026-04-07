@@ -1,0 +1,17 @@
+name: Deploy Web to Vercel
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - 'skills/**'
+      - '.github/workflows/deploy-web.yml'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Trigger Vercel deploy
+        run: echo "Configure VERCEL_DEPLOY_HOOK in repo secrets and replace this step with curl trigger."
