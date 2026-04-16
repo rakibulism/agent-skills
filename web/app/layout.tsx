@@ -12,41 +12,46 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body>
-        <header className="nav shell">
-          <Link href="/" className="logo">agent-skills</Link>
-          <nav>
-            <Link href="/skills">Skills</Link>
-            <Link href="/providers">Providers</Link>
-            <Link href="/categories">Categories</Link>
-          </nav>
-          <div className="social-links">
-            <a
-              href="https://github.com/rakibulism/agent-skills"
-              target="_blank"
-              rel="noreferrer"
-              className="social-chip github-chip"
-              aria-label="GitHub repository for agent-skills"
-            >
-              <i className="ri-github-fill" aria-hidden="true" />
-              <span>Star on GitHub</span>
-              <img
-                src="https://img.shields.io/github/stars/rakibulism/agent-skills?style=social"
-                alt="GitHub stars for agent-skills"
-              />
-            </a>
-            <a
-              href="https://x.com/rakibulism"
-              target="_blank"
-              rel="noreferrer"
-              className="social-chip"
-              aria-label="Follow the author on X"
-            >
-              <i className="ri-twitter-x-fill" aria-hidden="true" />
-              <span>Author on X</span>
-            </a>
+        <header className="nav">
+          <div className="shell nav-inner">
+            <Link href="/" className="logo">agent-skills</Link>
+
+            <nav className="nav-links">
+              <Link href="/skills">Skills</Link>
+              <Link href="/providers">Providers</Link>
+              <Link href="/categories">Categories</Link>
+            </nav>
+
+            <div className="nav-right">
+              <a
+                href="https://github.com/rakibulism/agent-skills"
+                target="_blank"
+                rel="noreferrer"
+                className="social-chip github-chip"
+                aria-label="GitHub repository for agent-skills"
+              >
+                <i className="ri-github-fill" aria-hidden="true" />
+                <span>Star on GitHub</span>
+                <img
+                  src="https://img.shields.io/github/stars/rakibulism/agent-skills?style=social"
+                  alt="GitHub stars for agent-skills"
+                />
+              </a>
+              <a
+                href="https://x.com/rakibulism"
+                target="_blank"
+                rel="noreferrer"
+                className="social-chip"
+                aria-label="Follow the author on X"
+              >
+                <i className="ri-twitter-x-fill" aria-hidden="true" />
+                <span>Author on X</span>
+              </a>
+            </div>
           </div>
         </header>
-        <main className="shell">{children}</main>
+
+        <main>{children}</main>
       </body>
     </html>
   );
