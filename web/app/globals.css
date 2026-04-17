@@ -58,7 +58,12 @@
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 240 10% 3.9%;
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom variables for the redesign */
+    --hero-gradient-1: rgba(220, 240, 255, 0.4);
+    --hero-gradient-2: rgba(255, 230, 240, 0.3);
+    --hero-grid-color: rgba(0, 0, 0, 0.03);
   }
   .dark {
     --background: 240 10% 3.9%;
@@ -80,6 +85,11 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
+
+    /* Custom variables for the redesign (Dark Mode) */
+    --hero-gradient-1: rgba(30, 40, 80, 0.4);
+    --hero-gradient-2: rgba(60, 20, 40, 0.3);
+    --hero-grid-color: rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -89,5 +99,27 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .bg-hero-grid {
+    background-image: 
+      linear-gradient(var(--hero-grid-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--hero-grid-color) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .bg-mesh-gradient {
+    background: 
+      radial-gradient(at 0% 0%, var(--hero-gradient-1) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, var(--hero-gradient-2) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, var(--hero-gradient-1) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, var(--hero-gradient-2) 0px, transparent 50%);
+  }
+
+  .glass {
+    @apply backdrop-blur-md bg-background/70 border border-white/20 dark:border-white/10;
   }
 }
