@@ -3,3 +3,4 @@ web/node_modules/
 .DS_Store
 docs.zip
 .next/
+.npm-cache/

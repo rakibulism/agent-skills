@@ -11,47 +11,54 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>
-        <header className="nav">
-          <div className="shell nav-inner">
-            <Link href="/" className="logo">agent-skills</Link>
+      <body className="antialiased min-h-screen bg-background text-foreground font-sans">
+        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+          <div className="container mx-auto max-w-7xl flex h-14 items-center justify-between px-4 sm:px-8">
+            <Link href="/" className="font-bold text-lg tracking-tight">
+              agent-skills
+            </Link>
 
-            <nav className="nav-links">
-              <Link href="/skills">Skills</Link>
-              <Link href="/providers">Providers</Link>
-              <Link href="/categories">Categories</Link>
+            <nav className="hidden md:flex items-center gap-1">
+              <Link href="/skills" className="px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors">
+                Skills
+              </Link>
+              <Link href="/providers" className="px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors">
+                Providers
+              </Link>
+              <Link href="/categories" className="px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors">
+                Categories
+              </Link>
             </nav>
 
-            <div className="nav-right">
+            <div className="flex items-center gap-2">
               <a
                 href="https://github.com/rakibulism/agent-skills"
                 target="_blank"
                 rel="noreferrer"
-                className="social-chip github-chip"
-                aria-label="GitHub repository for agent-skills"
+                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold border rounded-full bg-background hover:bg-muted transition-colors border-border"
               >
-                <i className="ri-github-fill" aria-hidden="true" />
+                <i className="ri-github-fill text-sm" />
                 <span>Star on GitHub</span>
                 <img
                   src="https://img.shields.io/github/stars/rakibulism/agent-skills?style=social"
-                  alt="GitHub stars for agent-skills"
+                  alt="GitHub stars"
+                  className="h-4"
                 />
               </a>
               <a
                 href="https://x.com/rakibulism"
                 target="_blank"
                 rel="noreferrer"
-                className="social-chip"
-                aria-label="Follow the author on X"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background hover:bg-muted transition-colors"
+                aria-label="Author on X"
               >
-                <i className="ri-twitter-x-fill" aria-hidden="true" />
-                <span>Author on X</span>
+                <i className="ri-twitter-x-fill" />
               </a>
             </div>
           </div>
         </header>
 
-        <main>{children}</main>
+        <main className="min-h-[calc(100vh-3.5rem)]">{children}</main>
       </body>
     </html>
   );
