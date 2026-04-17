@@ -1,6 +1,6 @@
 {
-  "name": "@rakibulism/agent-skills",
-  "version": "1.0.0",
+  "name": "@wowrakibul02/agent-skills",
+  "version": "2.0.3",
   "description": "Download AI agent skill files from agent-skills",
   "type": "module",
   "bin": {
